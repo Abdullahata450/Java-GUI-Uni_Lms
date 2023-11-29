@@ -5,17 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91854be2-0c02-4277-bed3-da5a759226f5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java Uni LMS.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Admin/AddCourseModule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Admin/AdminPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Icons/Login.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +42,7 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "D:/Java Project Wok/Java Uni LMS/src/Main.java",
     "vue.rearranger.settings.migration": "true"
   }
@@ -70,7 +61,7 @@
       <option name="presentableId" value="Default" />
       <updated>1701274204358</updated>
       <workItem from="1701274207085" duration="67000" />
-      <workItem from="1701274449569" duration="9849000" />
+      <workItem from="1701274449569" duration="10180000" />
     </task>
     <servers />
   </component>
