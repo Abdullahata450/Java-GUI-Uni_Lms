@@ -1,4 +1,5 @@
 package Admin;
+import javax.swing.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -25,6 +26,37 @@ public class TeacherDB {
                 if (rowsInserted > 0) {
                     System.out.println("A new Teacher was inserted successfully!");
                 }
+            }
+
+            if (operation=='d'){
+                String deleteQury="DELETE FROM teacher WHERE Teacher_id = ?";
+                PreparedStatement deleteStatement = con.prepareStatement(deleteQury);
+                deleteStatement.setInt(1, id);
+                int rowsDeleted = deleteStatement.executeUpdate();
+
+                if (rowsDeleted > 0) {
+                    JOptionPane.showMessageDialog(null,"Teacher with ID: " + id + " was deleted successfully!");
+                }
+
+
+            }
+            if(operation=='u'){
+                String updateQuery = "UPDATE teacher SET Name = ?, Subject = ?, Gender = ?,  Phone = ? WHERE Teacher_id = ?";
+                PreparedStatement updateStatement = con.prepareStatement(updateQuery);
+                updateStatement.setString(1,name);
+                updateStatement.setString(2,subject);
+                updateStatement.setString(3,gender);
+                updateStatement.setString(4,phone);
+                updateStatement.setInt(5,id);
+
+                int rowsUpdated = updateStatement.executeUpdate();
+
+                if (rowsUpdated > 0) {
+                    JOptionPane.showMessageDialog(null, "Teacher with ID: " + id + " was updated successfully!");
+                } else {
+                    JOptionPane.showMessageDialog(null, "No Teacher found with ID: " + id, "Error", JOptionPane.ERROR_MESSAGE);
+                }
+
             }
 
             con.close();

@@ -113,6 +113,46 @@ public class ManageTeacher {
 
 
 
+        updatebtn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    int id=Integer.parseInt(idField.getText());
+                    String Name=TName.getText();
+                    String Phone=phoneField.getText();
+                    String sub=Subject.getText();
+                    String gender = maleRadioButton.isSelected() ? "Male" : "Female";
+
+                    TeacherDB db=new TeacherDB();
+                    db.insertupdateDeleteTeacher('u',id,Name,sub,gender,Phone);
+                    frame.dispose();
+                   new ManageTeacher();
+
+                }
+                catch (Exception ex){
+                    ex.printStackTrace();
+                }
+
+            }
+        });
+        deletebtn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+
+                try {
+                    int id = Integer.parseInt(idField.getText());
+                    TeacherDB db=new TeacherDB();
+                    db.insertupdateDeleteTeacher('d',id,null,null,null,null);
+                }
+                catch (Exception ex){
+                    ex.printStackTrace();
+                }
+
+
+
+            }
+        });
+
+
+
         backbtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -120,6 +160,7 @@ public class ManageTeacher {
                 frame.dispose();
             }
         });
+
         addButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 

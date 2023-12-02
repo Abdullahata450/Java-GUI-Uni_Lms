@@ -16,7 +16,7 @@ public class Main {
     }
 
     public static void createAndShowGUI() {
-        JFrame frame = new JFrame("Simple Course Management System");
+        JFrame frame = new JFrame("Welcome To LMS");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 300);
         frame.setLayout(null);

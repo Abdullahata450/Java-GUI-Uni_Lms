@@ -5,19 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91854be2-0c02-4277-bed3-da5a759226f5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Admin/AddStudent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Admin/AddTeacher.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Admin/ManageStudent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Admin/ManageTeacher.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Admin/SendMailCourse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Admin/StudentDB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Admin/TeacherDB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java Uni LMS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Java Uni LMS.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Admin/AddCourseModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/AddCourseModule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin/AdminPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/AdminPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Admin/ManageTeacher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/ManageTeacher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Admin/TeacherDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/TeacherDB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -88,7 +79,7 @@
       <workItem from="1701274449569" duration="15139000" />
       <workItem from="1701331374383" duration="283000" />
       <workItem from="1701461082374" duration="12640000" />
-      <workItem from="1701505720481" duration="34339000" />
+      <workItem from="1701505720481" duration="44514000" />
     </task>
     <servers />
   </component>
