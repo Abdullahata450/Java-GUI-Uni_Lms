@@ -5,7 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91854be2-0c02-4277-bed3-da5a759226f5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Admin/AddStudent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Admin/AddTeacher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Admin/ManageStudent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Admin/ManageTeacher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Admin/SendMailCourse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Admin/StudentDB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Admin/TeacherDB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java Uni LMS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Java Uni LMS.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Admin/AddCourseModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/AddCourseModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Admin/AdminPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/AdminPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +35,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -36,14 +52,22 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.STATE": "right",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.STATE": "left",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "1",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
+    "last_opened_file_path": "D:/Java Project Wok/Java Uni LMS/lib/mysql-connector-j-8.2.0.jar",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "D:/Java Project Wok/Java Uni LMS/src/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -61,7 +85,10 @@
       <option name="presentableId" value="Default" />
       <updated>1701274204358</updated>
       <workItem from="1701274207085" duration="67000" />
-      <workItem from="1701274449569" duration="10180000" />
+      <workItem from="1701274449569" duration="15139000" />
+      <workItem from="1701331374383" duration="283000" />
+      <workItem from="1701461082374" duration="12640000" />
+      <workItem from="1701505720481" duration="34339000" />
     </task>
     <servers />
   </component>

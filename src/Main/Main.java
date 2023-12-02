@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.*;
+
 import Admin.AddCourseModule;
 import Admin.AdminPanel;
 
@@ -67,15 +69,42 @@ public class Main {
                 String username = usernameField.getText();
                 String password = new String(passwordField.getPassword());
 
-                if (username.equals("Admin") && password.equals("admin")) {
-                    new AdminPanel();
-                    frame.dispose();
+                try {
+                    Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms","root", "2000");
+                    String query = "SELECT * FROM user WHERE user_name = ? AND password = ?";
 
-                } else {
-                    JOptionPane.showMessageDialog(frame, "Invalid credentials. Try again.");
+                    PreparedStatement preparedStatement = connection.prepareStatement(query);
+                    preparedStatement.setString(1, username);
+                    preparedStatement.setString(2, password);
+                    ResultSet resultSet = preparedStatement.executeQuery();
+
+                    if (resultSet.next()) {
+                        String dbUsername = resultSet.getString("user_name");
+                        String dbPassword = resultSet.getString("password");
+
+                        if (dbUsername.equals("Admin") && dbPassword.equals("admin")) {
+                            new AdminPanel();
+                            frame.dispose();
+                        }
+                        else if (dbUsername.equals("Student") && dbPassword.equals("student")) {
+                            new AddCourseModule();
+                            frame.dispose();
+
+                        } else {
+                            JOptionPane.showMessageDialog(frame, "Invalid credentials. Try again.");
+                        }
+
+                    }
+
+
+                    connection.close();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(frame, "Error: Unable to connect to the database.");
                 }
             }
         });
+
 
         frame.setVisible(true);
     }

@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.event.*;
 
 public class AdminPanel implements ActionListener {
-    public JButton addCourseBtn, addStudentBtn, addTeacherBtn, deleteBtn, updateBtn;
+    public JButton addCourseBtn, addStudentBtn, addTeacherBtn, ManageBtn, ManageBtn2;
     JFrame frame;
 
     public AdminPanel() {
@@ -20,47 +20,49 @@ public class AdminPanel implements ActionListener {
 
     private void placeButtons(JPanel panel) {
         addCourseBtn = new JButton("Add New Course");
-        addStudentBtn = new JButton("Add New Student");
+        addStudentBtn = new JButton("Add Student");
         addTeacherBtn = new JButton("Add New Teacher");
-        deleteBtn = new JButton("Delete");
-        updateBtn = new JButton("Update");
+        ManageBtn = new JButton("Manage Student");
+        ManageBtn2 = new JButton("Manage Teacher");
 
         panel.add(addCourseBtn);
         panel.add(addStudentBtn);
         panel.add(addTeacherBtn);
-        panel.add(deleteBtn);
-        panel.add(updateBtn);
+        panel.add(ManageBtn);
+        panel.add(ManageBtn2);
 
         addCourseBtn.addActionListener(this);
         addStudentBtn.addActionListener(this);
         addTeacherBtn.addActionListener(this);
-        deleteBtn.addActionListener(this);
-        updateBtn.addActionListener(this);
+        ManageBtn.addActionListener(this);
+        ManageBtn2.addActionListener(this);
     }
 
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == addCourseBtn) {
-            // Add new course logic
-            // Example: Opening the AddCourseModule window
+
             new AddCourseModule();
             frame.dispose();
         }
-//        else if (e.getSource() == addStudentBtn) {
-//            // Add new student logic
-//            // You should add functionality here as needed
-//        }
-//        else if (e.getSource() == addTeacherBtn) {
-//            // Add new teacher logic
-//            // You should add functionality here as needed
-//        }
-//        else if (e.getSource() == deleteBtn) {
-//            // Delete logic
-//            // You should add functionality here as needed
-//        }
-//        else if (e.getSource() == updateBtn) {
-//            // Update logic
-//            // You should add functionality here as needed
-//        }
+        else if (e.getSource() == addStudentBtn) {
+            new AddStudent();
+            frame.dispose();
+
+        }
+        else if (e.getSource() == addTeacherBtn) {
+           new AddTeacher();
+           frame.dispose();
+        }
+        else if (e.getSource() == ManageBtn) {
+
+            new ManageStudent();
+            frame.dispose();
+        }
+
+        else if (e.getSource() == ManageBtn2) {
+            new ManageTeacher();
+            frame.dispose();
+        }
     }
 
     public static void main(String[] args) {
