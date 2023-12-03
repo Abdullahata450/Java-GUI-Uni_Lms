@@ -3,14 +3,17 @@ package Admin;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.SimpleDateFormat;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AddTeacher extends JFrame {
-    private JTextField idField, TName, Subject, phoneField;
+    private JTextField idField, TName, phoneField;
     private JRadioButton maleRadioButton, femaleRadioButton;
     private JFormattedTextField dobField;
 
     private JButton addButton,cancelButton;
+    private JComboBox<String> CourseDropdown;
 
     public  AddTeacher(){
         setTitle("Add Teacher");
@@ -37,8 +40,16 @@ public class AddTeacher extends JFrame {
         phoneField = new JTextField();
         phoneField.setBounds(150, 140, 150, 20);
 
-        Subject=new JTextField();
-        Subject.setBounds(150, 100, 150, 20);
+//        Subject=new JTextField();
+//        Subject.setBounds(150, 100, 150, 20);
+
+        CourseDropdown = new JComboBox<>();
+        CourseDropdown.setBounds(150, 100, 150, 20);
+
+      List<String> course = fetchCourseFromDatabase();
+       for (String Courses : course) {
+           CourseDropdown.addItem(Courses);
+       }
 
         maleRadioButton = new JRadioButton("Male");
         maleRadioButton.setBounds(150, 220, 80, 20);
@@ -56,6 +67,27 @@ public class AddTeacher extends JFrame {
 
         cancelButton=new JButton("Go back");
         cancelButton.setBounds(150,290,80,30);
+
+
+    }
+
+    public    List<String>fetchCourseFromDatabase(){
+        List<String> Course = new ArrayList<>();
+
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", "root", "2000");
+            Statement statement=connection.createStatement();
+            ResultSet resultSet=statement.executeQuery("SELECT  * FROM course");
+
+            while (resultSet.next()){
+                String CourseName=resultSet.getString("Course_name");
+                Course.add(CourseName);
+            }
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return Course;
     }
 
     private void addComponentsToFrame(){
@@ -72,7 +104,9 @@ public class AddTeacher extends JFrame {
         JLabel Addsub = new JLabel("Subject:");
         Addsub.setBounds(50, 100, 80, 20);
         add(Addsub);
-        add(Subject);
+        add(CourseDropdown);
+
+
 
         JLabel phoneLabel = new JLabel("Phone:");
         phoneLabel.setBounds(50, 140, 80, 20);
@@ -103,7 +137,7 @@ public class AddTeacher extends JFrame {
                 try {
                     int id=Integer.parseInt(idField.getText());
                     String name =TName.getText();
-                    String sub= Subject.getText();
+                    String sub= (String) CourseDropdown.getSelectedItem();
                     String gender = maleRadioButton.isSelected() ? "Male" : "Female";
                     String phone=phoneField.getText();
 

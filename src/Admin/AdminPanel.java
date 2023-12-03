@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.event.*;
 
 public class AdminPanel implements ActionListener {
-    public JButton addCourseBtn, addStudentBtn, addTeacherBtn, ManageBtn, ManageBtn2;
+    public JButton addCourseBtn, addStudentBtn, addTeacherBtn, ManageBtn, ManageBtn2,ManageBtn3;
     JFrame frame;
 
     public AdminPanel() {
@@ -24,18 +24,21 @@ public class AdminPanel implements ActionListener {
         addTeacherBtn = new JButton("Add New Teacher");
         ManageBtn = new JButton("Manage Student");
         ManageBtn2 = new JButton("Manage Teacher");
+        ManageBtn3=new JButton("Manage Course");
 
         panel.add(addCourseBtn);
         panel.add(addStudentBtn);
         panel.add(addTeacherBtn);
         panel.add(ManageBtn);
         panel.add(ManageBtn2);
+        panel.add(ManageBtn3);
 
         addCourseBtn.addActionListener(this);
         addStudentBtn.addActionListener(this);
         addTeacherBtn.addActionListener(this);
         ManageBtn.addActionListener(this);
         ManageBtn2.addActionListener(this);
+        ManageBtn3.addActionListener(this);
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -61,6 +64,10 @@ public class AdminPanel implements ActionListener {
 
         else if (e.getSource() == ManageBtn2) {
             new ManageTeacher();
+            frame.dispose();
+        }
+        else if (e.getSource() == ManageBtn3) {
+            new ManageCourse();
             frame.dispose();
         }
     }

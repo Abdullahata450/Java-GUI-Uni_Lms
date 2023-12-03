@@ -1,29 +1,24 @@
 package Admin;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
+import java.awt.event.ActionListener;
+
 
 public class AddCourseModule {
 
     JFrame frame = new JFrame();
-    private JTextField CourseNametext, idText, CourseInstText;
+    private JTextField CourseNametext, idText;
     private JSpinner jSpinner_courseHours;
-    private JButton button_AddCourses;
+    private JButton Addbtn;
     private JButton button_Cancel;
 
-    private JComboBox<String> instructorDropdown;
 
     public AddCourseModule() {
         initComponents();
     }
 
     private void initComponents() {
+
         frame.setSize(500, 600);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -48,18 +43,6 @@ public class AddCourseModule {
         Hours.setBounds(50, 320, 100, 30);
         frame.add(Hours);
 
-        JLabel instructorLabel = new JLabel("Instructor:");
-        instructorLabel.setBounds(50, 250, 100, 30);
-        frame.add(instructorLabel);
-
-        instructorDropdown = new JComboBox<>();
-        instructorDropdown.setBounds(150, 250, 200, 30);
-        frame.add(instructorDropdown);
-
-        List<String> instructors = fetchInstructorsFromDatabase();
-        for (String instructor : instructors) {
-            instructorDropdown.addItem(instructor);
-        }
 
         idText = new JTextField();
         idText.setFont(new java.awt.Font("Comic Sans MS", 2, 18));
@@ -77,13 +60,12 @@ public class AddCourseModule {
         jSpinner_courseHours.setBounds(150, 320, 100, 30);
         frame.add(jSpinner_courseHours);
 
-        button_AddCourses = new JButton("Add Course");
-        button_AddCourses.setBackground(new java.awt.Color(102, 102, 102));
-        button_AddCourses.setFont(new java.awt.Font("Calibri", 1, 16));
-        button_AddCourses.setForeground(new java.awt.Color(255, 255, 255));
-        button_AddCourses.setBounds(110, 450, 150, 36);
-        button_AddCourses.addActionListener(this::button_AddCoursesActionPerformed);
-        frame.add(button_AddCourses);
+        Addbtn = new JButton("Add Course");
+        Addbtn.setBackground(new java.awt.Color(102, 102, 102));
+        Addbtn.setFont(new java.awt.Font("Calibri", 1, 16));
+        Addbtn.setForeground(new java.awt.Color(255, 255, 255));
+        Addbtn.setBounds(110, 450, 150, 36);
+        frame.add(Addbtn);
 
         button_Cancel = new JButton("Cancel");
         button_Cancel.setBackground(new java.awt.Color(102, 102, 102));
@@ -93,31 +75,32 @@ public class AddCourseModule {
         button_Cancel.addActionListener(this::button_CancelActionPerformed);
         frame.add(button_Cancel);
 
-        frame.setLocationRelativeTo(null); // Center the frame on the screen
-    }
+        frame.setLocationRelativeTo(null);
 
-    private List<String> fetchInstructorsFromDatabase() {
-        List<String> instructors = new ArrayList<>();
-        try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", "root", "2000");
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("select * from teacher");
 
-            while (resultSet.next()) {
-                String instructorName = resultSet.getString("Name");
-                instructors.add(instructorName);
+        Addbtn.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+
+                int id=Integer.parseInt(idText.getText());
+                String Cname=CourseNametext.getText();
+                int Crhr=(int)jSpinner_courseHours.getValue();
+                CourseDB db=new CourseDB();
+                db.insertUpdateDeleteCourse('i',id,Cname,Crhr);
+                JOptionPane.showMessageDialog(null,"Course Added Successfuly");
+                ClearText();
+
             }
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-        return instructors;
+        });
+    }
+    void ClearText(){
+        idText.setText(" ");
+        CourseNametext.setText(" ");
+        jSpinner_courseHours.setValue(0);
     }
 
-    private void button_AddCoursesActionPerformed(ActionEvent evt) {
-        // Your logic for adding courses goes here
-        // Use idText.getText(), CourseNametext.getText(), and jSpinner_courseHours.getValue() to get the entered values
-        // Perform necessary operations
-    }
+
+
 
     private void button_CancelActionPerformed(ActionEvent evt) {
         new AdminPanel();

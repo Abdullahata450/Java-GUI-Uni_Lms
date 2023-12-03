@@ -8,11 +8,16 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ManageTeacher {
-    private JTextField idField, TName, Subject, phoneField;
+    private JTextField idField, TName, phoneField;
     private JRadioButton maleRadioButton, femaleRadioButton;
     private JFormattedTextField dobField;
+
+    private JComboBox<String> CourseDropdown;
+
 
     private JButton addButton,deletebtn,updatebtn,backbtn;
 
@@ -25,7 +30,8 @@ public class ManageTeacher {
 
 
     public ManageTeacher() {
-        frame = new JFrame("Student Management");
+
+        frame = new JFrame("Manage Teacher");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1150, 700); // Set your desired size here
         frame.setLayout(null);
@@ -62,12 +68,22 @@ public class ManageTeacher {
         frame.add(phoneField);
 
 
-        Subject=new JTextField();
-        Subject.setBounds(150, 100, 150, 20);
+
         JLabel sub=new JLabel("Subject");
         sub.setBounds(50,100,80,20);
-        frame.add(Subject);
+
+        CourseDropdown = new JComboBox<>();
+        CourseDropdown.setBounds(150, 100, 150, 20);
+
+        frame.add(CourseDropdown);
         frame.add(sub);
+
+        List<String> course = fetchCourseFromDatabase();
+        for (String Courses : course) {
+            CourseDropdown.addItem(Courses);
+        }
+
+
 
 
         maleRadioButton = new JRadioButton("Male");
@@ -106,7 +122,6 @@ public class ManageTeacher {
         frame.add(deletebtn);
 
 
-
         backbtn=new JButton("Go back");
         backbtn.setBounds(60,360,80,30);
         frame.add(backbtn);
@@ -119,7 +134,7 @@ public class ManageTeacher {
                     int id=Integer.parseInt(idField.getText());
                     String Name=TName.getText();
                     String Phone=phoneField.getText();
-                    String sub=Subject.getText();
+                    String sub=(String) CourseDropdown.getSelectedItem();
                     String gender = maleRadioButton.isSelected() ? "Male" : "Female";
 
                     TeacherDB db=new TeacherDB();
@@ -154,7 +169,6 @@ public class ManageTeacher {
 
 
         backbtn.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent e) {
                 new AdminPanel();
                 frame.dispose();
@@ -167,13 +181,12 @@ public class ManageTeacher {
                 try {
                     int id=Integer.parseInt(idField.getText());
                     String name=TName.getText();
-                    String Sub=Subject.getText();
-//                String gender=genderLabel.getText();
+                    String sub=(String) CourseDropdown.getSelectedItem();
                     String phn=phoneField.getText();
                     String g = maleRadioButton.isSelected() ? "Male" : "Female";
 
                     TeacherDB db=new TeacherDB();
-                    db.insertupdateDeleteTeacher('i',id,name,Sub,g,phn);
+                    db.insertupdateDeleteTeacher('i',id,name,sub,g,phn);
 
                 }
                 catch (Exception ex){
@@ -188,6 +201,26 @@ public class ManageTeacher {
 
 
 
+    }
+    public  List<String>fetchCourseFromDatabase(){
+        List<String> Course = new ArrayList<>();
+
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", "root", "2000");
+            Statement statement=connection.createStatement();
+            ResultSet resultSet=statement.executeQuery("SELECT  * FROM course");
+
+            while (resultSet.next()){
+                String CourseName=resultSet.getString("Course_Name");
+                Course.add(CourseName);
+            }
+
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+        }
+
+        return Course;
     }
 
 
