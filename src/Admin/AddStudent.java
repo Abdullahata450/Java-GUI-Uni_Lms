@@ -145,6 +145,10 @@ class AddStudent extends JFrame {
                     StudentDB std = new StudentDB();
                     std.insertupdateDeleteStudent('i', id, fname, lname, gender, bdate, phone, address);
 
+                    UserDB db=new UserDB();
+                    db.InsertUser(id,fname,"Student");
+
+
                     JOptionPane.showMessageDialog(null, "Student added successfully!");
                     setTextclear();
                 } catch (NumberFormatException ex) {
@@ -152,6 +156,8 @@ class AddStudent extends JFrame {
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(null, "Please enter the date in dd/MM/yyyy format.");
                 }
+
+
             }
         });
 

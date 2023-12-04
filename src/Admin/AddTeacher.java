@@ -143,6 +143,10 @@ public class AddTeacher extends JFrame {
 
                     TeacherDB db=new TeacherDB();
                     db.insertupdateDeleteTeacher('i',id,name,sub,gender,phone);
+
+                    UserDB std=new UserDB();
+                    std.InsertUser(id,name,"Teacher");
+
                     JOptionPane.showMessageDialog(null, "Teacher added successfully!");
 
                 }

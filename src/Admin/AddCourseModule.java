@@ -30,7 +30,7 @@ public class AddCourseModule {
         frame.add(jLabel1);
 
         JLabel CourseName = new JLabel("Course id");
-        CourseName.setFont(new java.awt.Font("Courier New", 1, 15));
+        CourseName.setFont(new java.awt.Font("Courier New", 1, 20));
         CourseName.setBounds(50, 120, 100, 30);
         frame.add(CourseName);
 

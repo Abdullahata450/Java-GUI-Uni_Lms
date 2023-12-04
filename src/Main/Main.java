@@ -1,13 +1,14 @@
 package Main;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
 
-import Admin.AddCourseModule;
+
+import TeacherDashBoard.TeacherModule;
 import Admin.AdminPanel;
+import TeacherDashBoard.ViewAlocatedCourse;
 
 public class Main {
 
@@ -78,26 +79,41 @@ public class Main {
                     preparedStatement.setString(2, password);
                     ResultSet resultSet = preparedStatement.executeQuery();
 
+
                     if (resultSet.next()) {
-                        String dbUsername = resultSet.getString("user_name");
-                        String dbPassword = resultSet.getString("password");
 
-                        if (dbUsername.equals("Admin") && dbPassword.equals("admin")) {
-                            new AdminPanel();
-                            frame.dispose();
-                        }
-                        else if (dbUsername.equals("Student") && dbPassword.equals("student")) {
-                            new AddCourseModule();
-                            frame.dispose();
+//                        String dbUsername = resultSet.getString("user_name");
+//                        String dbPassword = resultSet.getString("password");
+//                       if (dbUsername.equals(username) && dbPassword.equals(password)) {
 
-                        } else {
-                            JOptionPane.showMessageDialog(frame, "Invalid credentials. Try again.");
-                        }
 
+                            if (resultSet.getString("Role").equals("Admin")) {
+                                new AdminPanel();
+                                frame.dispose();
+                            }
+                            else if (resultSet.getString("Role").equals("Student")) {
+//                                new AddCourseModule();
+//                                frame.dispose();
+
+
+                            }
+                            else if (resultSet.getString("Role").equals("Teacher")) {
+//                                new TeacherModule();
+                                TeacherModule T=new TeacherModule();
+                                T.TLable.setText("Welcome " +username+".");
+                                ViewAlocatedCourse V =new ViewAlocatedCourse();
+                                V.retrieveTeacherData(password);
+
+                            }
+
+//                        }
+
+
+                        connection.close();
                     }
-
-
-                    connection.close();
+                    else {
+                        JOptionPane.showMessageDialog(frame, "Invalid credentials. Try again.");
+                    }
                 } catch (Exception ex) {
                     ex.printStackTrace();
                     JOptionPane.showMessageDialog(frame, "Error: Unable to connect to the database.");
