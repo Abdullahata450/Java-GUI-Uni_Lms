@@ -94,21 +94,16 @@ public class Main {
                             else if (resultSet.getString("Role").equals("Student")) {
 //                                new AddCourseModule();
 //                                frame.dispose();
-
-
                             }
                             else if (resultSet.getString("Role").equals("Teacher")) {
-//                                new TeacherModule();
                                 TeacherModule T=new TeacherModule();
                                 T.TLable.setText("Welcome " +username+".");
-                                ViewAlocatedCourse V =new ViewAlocatedCourse();
-                                V.retrieveTeacherData(password);
+                                T.SetTpass=Integer.parseInt(password);
+
 
                             }
 
 //                        }
-
-
                         connection.close();
                     }
                     else {

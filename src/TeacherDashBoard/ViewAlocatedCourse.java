@@ -2,6 +2,8 @@ package TeacherDashBoard;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -9,10 +11,11 @@ import java.sql.ResultSet;
 
 public class ViewAlocatedCourse extends JFrame {
 
-    private JTextField idField, courseField, nameField; // Fixed variable name 'NameField' to 'nameField'
-    private JButton submitButton;
+    private JLabel idField, courseField, nameField;
+    private JButton BackButton;
 
-    public ViewAlocatedCourse() { // Constructor name corrected to match the class name
+
+    public ViewAlocatedCourse() {
         setTitle("Teacher Information");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
@@ -24,19 +27,25 @@ public class ViewAlocatedCourse extends JFrame {
     }
 
     private void initComponents() {
-        JPanel inputPanel = new JPanel(new GridLayout(3, 2, 10, 10));
-        inputPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        JPanel inputPanel = new JPanel(null);
 
-        JLabel idLabel = new JLabel("Teacher ID:");
-        idField = new JTextField(10);
+        JLabel idLabel = new JLabel("Your  ID:");
+        idField = new JLabel();
+        idLabel.setBounds(10, 10, 100, 25);
+        idField.setBounds(120, 10, 150, 25);
 
-        JLabel nameLabel = new JLabel("Teacher Name:");
-        nameField = new JTextField(10);
+        JLabel nameLabel = new JLabel("Your Login Name:");
+        nameField = new JLabel();
+        nameLabel.setBounds(10, 40, 100, 25);
+        nameField.setBounds(120, 40, 150, 25);
 
-        JLabel courseLabel = new JLabel("Allocated Course:");
-        courseField = new JTextField(10);
+        JLabel courseLabel = new JLabel("Allocated Course To you:");
+        courseField = new JLabel();
+        courseLabel.setBounds(10, 70, 100, 25);
+        courseField.setBounds(120, 70, 150, 25);
 
-        submitButton = new JButton("Submit");
+        BackButton = new JButton("Go Back");
+        BackButton.setBounds(100, 110, 100, 30);
 
         inputPanel.add(idLabel);
         inputPanel.add(idField);
@@ -44,35 +53,43 @@ public class ViewAlocatedCourse extends JFrame {
         inputPanel.add(nameField);
         inputPanel.add(courseLabel);
         inputPanel.add(courseField);
-        inputPanel.add(submitButton);
+        inputPanel.add(BackButton);
 
-        add(inputPanel, BorderLayout.CENTER);
+        add(inputPanel);
+
+        BackButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+            }
+        });
+
+
     }
 
-    public void retrieveTeacherData(String id) {
+
+    public void retrieveTeacherData(int id) {
         try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", "root", "2000");
              PreparedStatement statement = connection.prepareStatement("SELECT * FROM teacher WHERE Teacher_id = ?")) {
-
-            statement.setString(1, id);
+            statement.setString(1, String.valueOf(id));
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
                     int teacherID = resultSet.getInt("Teacher_id");
                     String teacherName = resultSet.getString("Name");
                     String subject = resultSet.getString("Subject");
 
-//                    idField.setText(String.valueOf(teacherID));
                     idField.setText(String.valueOf(teacherID));
                     nameField.setText(teacherName);
                     courseField.setText(subject);
+
                 }
             }
         } catch (Exception ex) {
-            ex.printStackTrace();
+           JOptionPane.showMessageDialog(null,"No data Present");
         }
     }
 
     public static void main(String[] args) {
-        ViewAlocatedCourse v = new ViewAlocatedCourse();
-//        v.retrieveTeacherData(1); // You can pass the teacher ID here
+        new ViewAlocatedCourse();
     }
 }

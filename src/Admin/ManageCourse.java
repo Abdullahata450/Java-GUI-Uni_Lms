@@ -164,6 +164,7 @@ public class ManageCourse {
    }
 
    public void fillTable(){
+
        model.addColumn("Course id");
        model.addColumn("Course Name");
        model.addColumn("Course Credit Hours");

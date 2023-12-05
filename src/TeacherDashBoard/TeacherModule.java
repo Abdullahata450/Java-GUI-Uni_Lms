@@ -10,6 +10,8 @@ public class TeacherModule {
     private JPanel topPanel, sidePanel;
     public JLabel TLable;
 
+    public int SetTpass;
+
     public TeacherModule() {
         frame = new JFrame();
         frame.setTitle("Professor Dashboard");
@@ -62,7 +64,8 @@ public class TeacherModule {
         viewCoursesButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
               ViewAlocatedCourse v = new ViewAlocatedCourse();
-                new ViewAlocatedCourse();
+                   v.retrieveTeacherData(SetTpass);
+
 
             }
         });
