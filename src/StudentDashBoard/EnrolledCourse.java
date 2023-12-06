@@ -8,36 +8,52 @@ import java.sql.*;
 
 public class EnrolledCourse extends JFrame {
 
+    private JPanel contentPanel;
+
     public EnrolledCourse() {
         setTitle("Enrolled Course");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(new GridLayout(0, 1, 10, 10)); // Set GridLayout to vertically arrange course panels
-        setSize(600, 400);
+        setLayout(null);
+        setSize(600, 600);
         setLocationRelativeTo(null);
 
-        retrieveCourseData(); // Call the method to retrieve course data from the database
+        contentPanel = new JPanel();
+        contentPanel.setLayout(null);
+        contentPanel.setBounds(10, 10, 560, 340);
+        add(contentPanel);
+
+        retrieveCourseData();
 
         setVisible(true);
     }
 
-    public void addCourseBox(int courseId, String courseName, int credithrs, String teacherName) {
+    public void addCourseBox(int courseId, String courseName, int creditHrs, String teacherName) {
         JPanel coursePanel = new JPanel();
         coursePanel.setBorder(BorderFactory.createTitledBorder(String.valueOf(courseId)));
-        coursePanel.setLayout(new BorderLayout());
+        coursePanel.setLayout(new GridLayout(4, 4));
 
-        JLabel courseLabel = new JLabel("<html><b>Course Teacher Name:</b>" + teacherName + " <b>Course Name:</b> " + courseName + "<br/><b>Credit Hours:</b> " + credithrs + "</html>");
-        coursePanel.add(courseLabel, BorderLayout.CENTER);
+        JLabel nameLabel = new JLabel("Teacher Name: " + teacherName);
+        coursePanel.add(nameLabel);
+
+        JLabel courseLabel = new JLabel("Course Name: " + courseName);
+        coursePanel.add(courseLabel);
+
+        JLabel creditLabel = new JLabel("Credit Hours: " + creditHrs);
+        coursePanel.add(creditLabel);
 
         JButton enrollButton = new JButton("Enroll");
         enrollButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // Add functionality to enroll in the course
                 JOptionPane.showMessageDialog(EnrolledCourse.this, "Enroll in " + courseName + " Button Clicked!");
             }
         });
-        coursePanel.add(enrollButton, BorderLayout.SOUTH);
+        coursePanel.add(enrollButton);
 
-        add(coursePanel);
+        coursePanel.setBounds(60, contentPanel.getComponentCount() * 110, 300, 100);
+
+        contentPanel.add(coursePanel);
+
+
     }
 
     public void retrieveCourseData() {
