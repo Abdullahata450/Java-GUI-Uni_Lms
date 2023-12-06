@@ -4,15 +4,17 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ViewAlocatedCourse extends JFrame {
 
-    private JLabel idField, courseField, nameField;
+    private JLabel idField, courseField,nameField;
     private JButton BackButton;
+
+
+
 
 
     public ViewAlocatedCourse() {
@@ -88,6 +90,11 @@ public class ViewAlocatedCourse extends JFrame {
            JOptionPane.showMessageDialog(null,"No data Present");
         }
     }
+
+
+
+
+
 
     public static void main(String[] args) {
         new ViewAlocatedCourse();

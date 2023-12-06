@@ -8,8 +8,6 @@ import java.sql.*;
 
 import TeacherDashBoard.TeacherModule;
 import Admin.AdminPanel;
-import TeacherDashBoard.ViewAlocatedCourse;
-
 public class Main {
 
     public static void main(String[] args) {
