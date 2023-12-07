@@ -8,52 +8,41 @@ import java.sql.*;
 
 public class EnrolledCourse extends JFrame {
 
-    private JPanel contentPanel;
-
     public EnrolledCourse() {
         setTitle("Enrolled Course");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(null);
         setSize(600, 600);
+        setLayout(null);
         setLocationRelativeTo(null);
-
-        contentPanel = new JPanel();
-        contentPanel.setLayout(null);
-        contentPanel.setBounds(10, 10, 560, 340);
-        add(contentPanel);
 
         retrieveCourseData();
 
         setVisible(true);
     }
 
-    public void addCourseBox(int courseId, String courseName, int creditHrs, String teacherName) {
-        JPanel coursePanel = new JPanel();
-        coursePanel.setBorder(BorderFactory.createTitledBorder(String.valueOf(courseId)));
-        coursePanel.setLayout(new GridLayout(4, 4));
+    public void addCourseBox(int courseId, String courseName, int creditHrs, String teacherName, int index) {
+        JPanel coursePanel = new JPanel(new GridLayout(4, 1));
 
         JLabel nameLabel = new JLabel("Teacher Name: " + teacherName);
-        coursePanel.add(nameLabel);
-
         JLabel courseLabel = new JLabel("Course Name: " + courseName);
-        coursePanel.add(courseLabel);
-
         JLabel creditLabel = new JLabel("Credit Hours: " + creditHrs);
-        coursePanel.add(creditLabel);
-
         JButton enrollButton = new JButton("Enroll");
+
+        nameLabel.setBounds(20, index * 110, 300, 25);
+        courseLabel.setBounds(20, index * 110 + 25, 300, 25);
+        creditLabel.setBounds(20, index * 110 + 50, 300, 25);
+        enrollButton.setBounds(20, index * 110 + 75, 100, 25);
+
         enrollButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 JOptionPane.showMessageDialog(EnrolledCourse.this, "Enroll in " + courseName + " Button Clicked!");
             }
         });
-        coursePanel.add(enrollButton);
 
-        coursePanel.setBounds(60, contentPanel.getComponentCount() * 110, 300, 100);
-
-        contentPanel.add(coursePanel);
-
-
+        add(nameLabel);
+        add(courseLabel);
+        add(creditLabel);
+        add(enrollButton);
     }
 
     public void retrieveCourseData() {
@@ -67,19 +56,21 @@ public class EnrolledCourse extends JFrame {
             PreparedStatement statement = connection.prepareStatement(query);
             ResultSet resultSet = statement.executeQuery();
 
+            int index = 0;
             while (resultSet.next()) {
                 int courseId = resultSet.getInt("Course_id");
                 String courseName = resultSet.getString("Course_name");
                 int creditHours = resultSet.getInt("Credit_hrs");
                 String teacherName = resultSet.getString("Name");
 
-                addCourseBox(courseId, courseName, creditHours, teacherName);
+                addCourseBox(courseId, courseName, creditHours, teacherName, index++);
             }
 
             connection.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+
     }
 
     public static void main(String[] args) {

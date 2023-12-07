@@ -1,3 +1,5 @@
+package StudentDashBoard;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
@@ -8,11 +10,11 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class test extends JFrame {
+public class ViewAssignment extends JFrame {
 
     private JPanel panel;
 
-    public test() {
+    public ViewAssignment() {
         setTitle("Display Files in Panel");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
@@ -69,6 +71,6 @@ public class test extends JFrame {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(test::new);
+        SwingUtilities.invokeLater(ViewAssignment::new);
     }
 }

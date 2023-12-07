@@ -85,8 +85,7 @@ public class TeacherModule {
         sidePanel.add(uploadMaterialsButton);
         uploadMaterialsButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // Add functionality to upload materials
-                JOptionPane.showMessageDialog(frame, "Upload Materials Button Clicked!");
+                new Upload_material();
             }
         });
 
