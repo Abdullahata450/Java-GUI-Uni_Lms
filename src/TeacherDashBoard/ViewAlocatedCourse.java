@@ -86,7 +86,8 @@ public class ViewAlocatedCourse extends JFrame {
 
                 }
             }
-        } catch (Exception ex) {
+        }
+        catch (Exception ex) {
            JOptionPane.showMessageDialog(null,"No data Present");
         }
     }

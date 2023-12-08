@@ -9,7 +9,7 @@ public class StudentPanel {
 
     private JFrame frame;
     private JPanel topPanel, sidePanel;
-    private JLabel TLable;
+    public JLabel SLable;
 
     public int SetTpass;
 
@@ -50,11 +50,11 @@ public class StudentPanel {
 
         sidePanel.setLayout(new GridLayout(0, 1, 50, 4));
 
-        TLable = new JLabel("Welcome");
-        TLable.setFont(new java.awt.Font("Courier New", 1, 20));
-        TLable.setBounds(50, 120, 100, 30);
-        frame.add(TLable);
-        sidePanel.add(TLable);
+        SLable = new JLabel("");
+        SLable.setFont(new java.awt.Font("Courier New", 2, 17));
+        SLable.setBounds(50, 120, 100, 30);
+        frame.add(SLable);
+        sidePanel.add(SLable);
 
         JButton enrollCourseButton = new JButton("Enroll in Course");
         sidePanel.add(enrollCourseButton);
@@ -64,6 +64,16 @@ public class StudentPanel {
                 new EnrolledCourse();
             }
         });
+
+        JButton viewCourse=new JButton("View Course");
+        sidePanel.add(viewCourse);
+
+        viewCourse.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
 
         JButton viewAssingmentbtn = new JButton("View Assignment");
         sidePanel.add(viewAssingmentbtn);
@@ -79,8 +89,9 @@ public class StudentPanel {
 
         viewGradesButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // Implement functionality to view grades
-                JOptionPane.showMessageDialog(frame, "View Grades Button Clicked!");
+                frame.dispose();
+                ViewScore V=new ViewScore();
+                V.retrieveScore(SetTpass);
             }
         });
     }

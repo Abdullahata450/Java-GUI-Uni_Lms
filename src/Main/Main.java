@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.sql.*;
 
 
+import StudentDashBoard.StudentPanel;
 import TeacherDashBoard.TeacherModule;
 import Admin.AdminPanel;
 public class Main {
@@ -90,15 +91,16 @@ public class Main {
                                 frame.dispose();
                             }
                             else if (resultSet.getString("Role").equals("Student")) {
-//                                new AddCourseModule();
-//                                frame.dispose();
+
+                                StudentPanel S=new StudentPanel();
+                                S.SLable.setText("Welcome " + username+" ");
+                                S.SetTpass=Integer.parseInt(password);
+
                             }
                             else if (resultSet.getString("Role").equals("Teacher")) {
                                 TeacherModule T=new TeacherModule();
-                                T.TLable.setText("Welcome " +username+".");
+                                T.TLable.setText("Welcome " + username +".");
                                 T.SetTpass=Integer.parseInt(password);
-
-
                             }
 
 //                        }
