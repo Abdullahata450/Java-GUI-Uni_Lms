@@ -11,7 +11,7 @@ public class StudentPanel {
     private JPanel topPanel, sidePanel;
     public JLabel SLable;
 
-    public int SetTpass;
+    public int StudentId;
 
     public StudentPanel() {
         frame = new JFrame();
@@ -61,7 +61,8 @@ public class StudentPanel {
 
         enrollCourseButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new EnrolledCourse();
+              EnrolledCourse en= new EnrolledCourse();
+              en.Studentid=StudentId;
             }
         });
 
@@ -70,6 +71,11 @@ public class StudentPanel {
 
         viewCourse.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+
+                ViewCourse v=new ViewCourse();
+                v.FetchdataFromEnrolledCourse(StudentId);
+
+
 
             }
         });
@@ -91,7 +97,7 @@ public class StudentPanel {
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
                 ViewScore V=new ViewScore();
-                V.retrieveScore(SetTpass);
+                V.retrieveScore(StudentId);
             }
         });
     }

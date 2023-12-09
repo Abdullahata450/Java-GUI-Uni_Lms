@@ -75,8 +75,7 @@ public class TeacherModule {
         sidePanel.add(markAttendanceButton);
         markAttendanceButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // Add functionality to mark attendance
-                JOptionPane.showMessageDialog(frame, "Mark Attendance Button Clicked!");
+
             }
         });
 
@@ -97,8 +96,8 @@ public class TeacherModule {
         sidePanel.add(inputGradesButton);
         inputGradesButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // Add functionality to input grades
-                JOptionPane.showMessageDialog(frame, "Input Grades Button Clicked!");
+                new AddScore();
+                frame.dispose();
             }
         });
 

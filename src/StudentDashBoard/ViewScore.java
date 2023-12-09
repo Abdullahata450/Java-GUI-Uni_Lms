@@ -88,11 +88,12 @@ public class ViewScore extends JFrame {
                 courseField.setText(courseName);
                 ScoreField.setText(String.valueOf(score));
                 DescriptionField.setText(desc);
+
             } else {
                 JOptionPane.showMessageDialog(null, "No Data Found for ID: " + id);
             }
 
-            connection.close(); // Close the connection after usage
+            connection.close();
         } catch (Exception ex) {
             ex.printStackTrace();
             JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage());
@@ -100,8 +101,8 @@ public class ViewScore extends JFrame {
     }
 
     public static void main(String[] args) {
-        // Example usage
-        ViewScore viewScore = new ViewScore();
-        viewScore.retrieveScore(123); // Replace 123 with the desired student ID
+
+       new ViewScore();
+
     }
 }

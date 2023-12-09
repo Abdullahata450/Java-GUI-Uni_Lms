@@ -11,6 +11,7 @@ public class ScoreDB {
 
             if(operation=='i'){
                 PreparedStatement statement=connection.prepareStatement("INSERT into score (Student_id,Course_name,Student_Score,description) VALUES (?,?,?,?)");
+
                 statement.setInt(1,id);
                 statement.setString(2,CourseName);
                 statement.setFloat(3,Score);

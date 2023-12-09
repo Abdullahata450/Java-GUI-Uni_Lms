@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.sql.*;
 
 
+import StudentDashBoard.EnrolledCourse;
 import StudentDashBoard.StudentPanel;
 import TeacherDashBoard.TeacherModule;
 import Admin.AdminPanel;
@@ -94,8 +95,10 @@ public class Main {
 
                                 StudentPanel S=new StudentPanel();
                                 S.SLable.setText("Welcome " + username+" ");
-                                S.SetTpass=Integer.parseInt(password);
+                                S.StudentId=Integer.parseInt(password);
 
+//                                EnrolledCourse en=new EnrolledCourse();
+//                                en.Studentid=Integer.parseInt(password);
                             }
                             else if (resultSet.getString("Role").equals("Teacher")) {
                                 TeacherModule T=new TeacherModule();
