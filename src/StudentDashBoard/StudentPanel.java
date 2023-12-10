@@ -74,6 +74,7 @@ public class StudentPanel {
 
                 ViewCourse v=new ViewCourse();
                 v.FetchdataFromEnrolledCourse(StudentId);
+                frame.dispose();
 
 
 

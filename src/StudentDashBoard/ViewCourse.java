@@ -2,6 +2,8 @@ package StudentDashBoard;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -13,6 +15,7 @@ public class ViewCourse extends JFrame {
     JLabel courseLabel;
     JLabel teacherLabel;
     JLabel creditLabel;
+
 
     ViewCourse() {
         setTitle("View Course");
@@ -32,16 +35,28 @@ public class ViewCourse extends JFrame {
         teacherLabel = new JLabel("Teacher Name: ");
         creditLabel = new JLabel("Credit Hours: ");
 
-        nameLabel.setBounds(20, 10, 300, 25);
-        courseLabel.setBounds(20, 35, 300, 25);
-        teacherLabel.setBounds(20, 60, 300, 25);
-        creditLabel.setBounds(20, 90, 300, 25);
+//        nameLabel.setBounds(20, 10, 300, 25);
+//        courseLabel.setBounds(20, 35, 300, 25);
+//        teacherLabel.setBounds(20, 60, 300, 25);
+//        creditLabel.setBounds(20, 90, 300, 25);
+
+
 
         // Add labels to the frame
-        add(nameLabel);
-        add(courseLabel);
-        add(teacherLabel);
-        add(creditLabel);
+//        add(nameLabel);
+//        add(courseLabel);
+//        add(teacherLabel);
+//        add(creditLabel);
+        JButton backbtn=new JButton("Go Back");
+        backbtn.setBounds(250,500,100,25);
+        add(backbtn);
+        backbtn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+
+                new StudentPanel();
+                dispose();
+            }
+        });
     }
 
     public void FetchdataFromEnrolledCourse(int studentId) {
@@ -51,20 +66,36 @@ public class ViewCourse extends JFrame {
             statement.setInt(1, studentId);
             ResultSet resultSet = statement.executeQuery();
 
-            if (resultSet.next()) {
-                nameLabel.setText("Your id: " + resultSet.getInt("Student_id"));
-                courseLabel.setText("Course Name: " + resultSet.getString("Course_name"));
-                teacherLabel.setText("Teacher Name: " + resultSet.getString("Teacher_name"));
-                creditLabel.setText("Credit Hours: " + resultSet.getInt("Credit_hr"));
-            } else {
-                JOptionPane.showMessageDialog(null, "No data found for Student ID: " + studentId);
+            int index = 0;
+
+            while (resultSet.next()) {
+                JPanel panel = new JPanel();
+
+                panel.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+                panel.setLayout(new GridLayout(4, 1));
+
+                JLabel idLabel = new JLabel("Your id: " + resultSet.getInt("Student_id"));
+                JLabel courseLabel = new JLabel("Course Name: " + resultSet.getString("Course_name"));
+                JLabel teacherLabel = new JLabel("Teacher Name: " + resultSet.getString("Teacher_name"));
+                JLabel creditLabel = new JLabel("Credit Hours: " + resultSet.getInt("Credit_hr"));
+
+                panel.add(idLabel);
+                panel.add(courseLabel);
+                panel.add(teacherLabel);
+                panel.add(creditLabel);
+
+                index++;
+                panel.setBounds(50, index * 120, 500, 100);
+                add(panel);
             }
+
 
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Error fetching data: " + ex.getMessage());
             ex.printStackTrace();
         }
     }
+
 
     public static void main(String[] args) {
         new ViewCourse();
