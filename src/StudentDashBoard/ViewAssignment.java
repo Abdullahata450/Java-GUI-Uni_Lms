@@ -28,6 +28,17 @@ public class ViewAssignment extends JFrame {
         scrollPane.setBounds(50, 50, 500, 300); // Set bounds for the scroll pane
         add(scrollPane);
 
+        JButton Backbtn=new JButton("Go back");
+        Backbtn.setBounds(250,300,100,30);
+        panel.add(Backbtn);
+
+        Backbtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+            }
+        });
+
         displayFiles();
 
         setVisible(true);
@@ -39,7 +50,7 @@ public class ViewAssignment extends JFrame {
             try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
                 ResultSet resultSet = preparedStatement.executeQuery();
 
-                int yPosition = 20; // Initial y-position for buttons
+                int yPosition = 10; // Initial y-position for buttons
 
                 while (resultSet.next()) {
                     String filename = resultSet.getString("Subject");
@@ -47,7 +58,7 @@ public class ViewAssignment extends JFrame {
                     InputStream inputStream = resultSet.getBinaryStream("Filename");
 
                     JButton fileButton = new JButton(filename);
-                    fileButton.setBounds(50, yPosition, 200, 30); // Set bounds for the file buttons
+                    fileButton.setBounds(50, yPosition, 300, 30); // Set bounds for the file buttons
                     fileButton.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
@@ -84,6 +95,6 @@ public class ViewAssignment extends JFrame {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(ViewAssignment::new);
+       new ViewAssignment();
     }
 }
