@@ -13,6 +13,9 @@ public class ViewScore extends JFrame {
     private JLabel idField, courseField, ScoreField, DescriptionField;
     private JButton BackButton;
 
+    public int id;
+    public  JLabel slable=new JLabel("Welocme ");
+
     public ViewScore() {
         setTitle("Score Information");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -65,7 +68,9 @@ public class ViewScore extends JFrame {
         BackButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new StudentPanel();
+//               StudentPanel S= new StudentPanel();
+//               S.StudentId=id;
+//               S.SLable=slable;
                 dispose();
             }
         });

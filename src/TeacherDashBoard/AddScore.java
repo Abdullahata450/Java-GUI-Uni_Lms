@@ -114,7 +114,8 @@ public class AddScore {
         Goback.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new TeacherModule();
+//                new TeacherModule();
+                frame.dispose();
             }
         });
 

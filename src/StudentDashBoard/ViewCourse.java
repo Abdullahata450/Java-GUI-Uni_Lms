@@ -17,6 +17,7 @@ public class ViewCourse extends JFrame {
     JLabel creditLabel;
 
 
+
     ViewCourse() {
         setTitle("View Course");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -52,8 +53,6 @@ public class ViewCourse extends JFrame {
         add(backbtn);
         backbtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-
-                new StudentPanel();
                 dispose();
             }
         });

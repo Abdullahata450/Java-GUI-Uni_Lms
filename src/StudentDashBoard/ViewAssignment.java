@@ -2,6 +2,8 @@ package StudentDashBoard;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
@@ -21,7 +23,7 @@ public class ViewAssignment extends JFrame {
         setSize(600, 400);
         setLocationRelativeTo(null);
 
-        panel = new JPanel(new GridLayout(1,1));
+        panel = new JPanel(null); // Use null layout for absolute positioning
         JScrollPane scrollPane = new JScrollPane(panel);
         scrollPane.setBounds(50, 50, 500, 300); // Set bounds for the scroll pane
         add(scrollPane);
@@ -37,34 +39,45 @@ public class ViewAssignment extends JFrame {
             try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
                 ResultSet resultSet = preparedStatement.executeQuery();
 
+                int yPosition = 20; // Initial y-position for buttons
+
                 while (resultSet.next()) {
                     String filename = resultSet.getString("Subject");
+
                     InputStream inputStream = resultSet.getBinaryStream("Filename");
 
-                    File file = new File("retrieved_" + filename);
-                    FileOutputStream fileOutputStream = new FileOutputStream(file);
-                    byte[] buffer = new byte[1024];
-                    int bytesRead;
-                    while ((bytesRead = inputStream.read(buffer)) != -1) {
-                        fileOutputStream.write(buffer, 0, bytesRead);
-                    }
-
-                    fileOutputStream.close();
-                    inputStream.close();
-
                     JButton fileButton = new JButton(filename);
-                    fileButton.addActionListener(e -> {
-                        // Open the file here or perform any other action
-                        // For example, open the file in default system application
-                        try {
-                            Desktop.getDesktop().open(file);
-                        } catch (Exception ex) {
-                            ex.printStackTrace();
+                    fileButton.setBounds(50, yPosition, 200, 30); // Set bounds for the file buttons
+                    fileButton.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            openFile(filename, inputStream);
                         }
                     });
                     panel.add(fileButton);
+
+                    yPosition += 40; // Increase y-position for the next button
                 }
             }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    private void openFile(String filename, InputStream inputStream) {
+        try {
+            File file = new File("retrieved : " + filename);
+            FileOutputStream fileOutputStream = new FileOutputStream(file);
+            byte[] buffer = new byte[1024];
+            int bytesRead;
+            while ((bytesRead = inputStream.read(buffer)) != -1) {
+                fileOutputStream.write(buffer, 0, bytesRead);
+            }
+
+            fileOutputStream.close();
+            inputStream.close();
+            Desktop.getDesktop().open(file);
+
         } catch (Exception ex) {
             ex.printStackTrace();
         }

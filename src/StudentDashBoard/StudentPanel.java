@@ -74,12 +74,12 @@ public class StudentPanel {
 
                 ViewCourse v=new ViewCourse();
                 v.FetchdataFromEnrolledCourse(StudentId);
-                frame.dispose();
 
 
 
             }
         });
+
 
 
         JButton viewAssingmentbtn = new JButton("View Assignment");
@@ -96,12 +96,15 @@ public class StudentPanel {
 
         viewGradesButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                frame.dispose();
                 ViewScore V=new ViewScore();
                 V.retrieveScore(StudentId);
             }
         });
     }
+    public void SetStudentId(int id){
+        this.StudentId=id;
+    }
+
 
     public static void main(String[] args) {
         new StudentPanel();

@@ -97,7 +97,6 @@ public class TeacherModule {
         inputGradesButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new AddScore();
-                frame.dispose();
             }
         });
 

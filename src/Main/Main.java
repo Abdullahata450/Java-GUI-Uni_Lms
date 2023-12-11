@@ -8,6 +8,7 @@ import java.sql.*;
 
 import StudentDashBoard.EnrolledCourse;
 import StudentDashBoard.StudentPanel;
+import StudentDashBoard.ViewScore;
 import TeacherDashBoard.TeacherModule;
 import Admin.AdminPanel;
 public class Main {
@@ -95,7 +96,10 @@ public class Main {
 
                                 StudentPanel S=new StudentPanel();
                                 S.SLable.setText("Welcome " + username+" ");
-                                S.StudentId=Integer.parseInt(password);
+//                                S.StudentId=Integer.parseInt(password);
+                                S.SetStudentId(Integer.parseInt(password));
+
+
 
 //                                EnrolledCourse en=new EnrolledCourse();
 //                                en.Studentid=Integer.parseInt(password);
