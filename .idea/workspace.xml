@@ -5,14 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91854be2-0c02-4277-bed3-da5a759226f5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Java_EE_6_Java_EE_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TeacherDashBoard/MarkStdAttendenc.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/testing/test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java Uni LMS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Java Uni LMS.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Admin/AddStudent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/AddStudent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Admin/AddTeacher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/AddTeacher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Admin/AdminPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/AdminPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Admin/ManageStudent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/ManageStudent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Admin/ManageTeacher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/ManageTeacher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Admin/StudentDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/StudentDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Admin/TeacherDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/TeacherDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Admin/UserDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/UserDB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StudentDashBoard/EnrolledCourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StudentDashBoard/EnrolledCourse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StudentDashBoard/EnrolledCourseDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StudentDashBoard/EnrolledCourseDB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/StudentDashBoard/StudentPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StudentDashBoard/StudentPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StudentDashBoard/ViewAssignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StudentDashBoard/ViewAssignment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/StudentDashBoard/ViewCourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StudentDashBoard/ViewCourse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/StudentDashBoard/ViewScore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StudentDashBoard/ViewScore.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TeacherDashBoard/AddScore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TeacherDashBoard/AddScore.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TeacherDashBoard/TeacherModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TeacherDashBoard/TeacherModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TeacherDashBoard/Upload_material.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TeacherDashBoard/Upload_material.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +44,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/Main/Main.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -41,30 +59,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.STATE": "right",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.STATE": "left",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "1",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/Java Project Wok/Java Uni LMS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "D:/Java Project Wok/Java Uni LMS/src/Main.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.STATE&quot;: &quot;right&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.STATE&quot;: &quot;left&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;1&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Java Project Wok/Java Uni LMS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;D:/Java Project Wok/Java Uni LMS/src/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Java Project Wok\Java Uni LMS\src\Icons" />
@@ -97,11 +115,31 @@
       <workItem from="1702201868141" duration="741000" />
       <workItem from="1702204407227" duration="6151000" />
       <workItem from="1702310157909" duration="4013000" />
-      <workItem from="1702325499416" duration="2202000" />
+      <workItem from="1702325499416" duration="2725000" />
+      <workItem from="1702463904381" duration="2339000" />
+      <workItem from="1702732702798" duration="5909000" />
+      <workItem from="1702810697557" duration="36000" />
+      <workItem from="1704213622128" duration="5135000" />
+      <workItem from="1704268845225" duration="1295000" />
+      <workItem from="1704309954439" duration="3483000" />
+      <workItem from="1704362497063" duration="51000" />
+      <workItem from="1704393315755" duration="6451000" />
+      <workItem from="1704464386204" duration="9493000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/StudentDashBoard/EnrolledCourse.java</url>
+          <line>97</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

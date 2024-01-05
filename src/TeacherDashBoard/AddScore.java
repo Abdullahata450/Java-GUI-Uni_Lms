@@ -154,7 +154,7 @@ public class AddScore {
 
             while (resultSet.next()){
                 Object [] obj=new Object[4];
-                obj[0]=resultSet.getInt("Student_id");
+                obj[0]=resultSet.getString("Student_id");
                 obj[1]=resultSet.getString("First_name");
                 obj[2]=resultSet.getString("Last_name");
                 model.addRow(obj);

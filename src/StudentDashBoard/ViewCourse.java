@@ -58,11 +58,11 @@ public class ViewCourse extends JFrame {
         });
     }
 
-    public void FetchdataFromEnrolledCourse(int studentId) {
+    public void FetchdataFromEnrolledCourse(String studentId) {
         try {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", "root", "2000");
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM enrolled_courses WHERE Student_id = ?");
-            statement.setInt(1, studentId);
+            statement.setString(1, studentId);
             ResultSet resultSet = statement.executeQuery();
 
             int index = 0;

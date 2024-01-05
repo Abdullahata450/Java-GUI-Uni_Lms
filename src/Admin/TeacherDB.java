@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class TeacherDB {
-    public void insertupdateDeleteTeacher(char operation, Integer id, String name, String subject, String gender,String phone) {
+    public void insertupdateDeleteTeacher(char operation, String id, String name, String subject, String gender,String phone) {
         try {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", "root", "2000");
 
@@ -16,7 +16,7 @@ public class TeacherDB {
 
 
                 PreparedStatement preparedStatement = con.prepareStatement(query);
-                preparedStatement.setInt(1, id);
+                preparedStatement.setString(1, id);
                 preparedStatement.setString(2, name);
                 preparedStatement.setString(3, subject);
                 preparedStatement.setString(4, gender);
@@ -31,7 +31,7 @@ public class TeacherDB {
             if (operation=='d'){
                 String deleteQury="DELETE FROM teacher WHERE Teacher_id = ?";
                 PreparedStatement deleteStatement = con.prepareStatement(deleteQury);
-                deleteStatement.setInt(1, id);
+                deleteStatement.setString(1, id);
                 int rowsDeleted = deleteStatement.executeUpdate();
 
                 if (rowsDeleted > 0) {
@@ -47,7 +47,7 @@ public class TeacherDB {
                 updateStatement.setString(2,subject);
                 updateStatement.setString(3,gender);
                 updateStatement.setString(4,phone);
-                updateStatement.setInt(5,id);
+                updateStatement.setString(5,id);
 
                 int rowsUpdated = updateStatement.executeUpdate();
 

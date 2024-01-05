@@ -11,7 +11,8 @@ public class StudentPanel {
     private JPanel topPanel, sidePanel;
     public JLabel SLable;
 
-    public int StudentId;
+    public String StudentId;
+    public String Stdname;
 
     public StudentPanel() {
         frame = new JFrame();
@@ -32,7 +33,7 @@ public class StudentPanel {
         frame.add(topPanel);
 
         JLabel label = new JLabel("Student Panel");
-        label.setBounds(400, 0, 200, 100);
+        label.setBounds(450, 0, 200, 100);
         label.setForeground(Color.BLACK);
         frame.add(label);
 
@@ -41,7 +42,7 @@ public class StudentPanel {
         sidePanel.setBackground(Color.LIGHT_GRAY);
         frame.add(sidePanel);
 
-        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/TeacherBackGround.jpg"));
+        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/Studenpanalpic.jpg"));
         Image i2 = i1.getImage().getScaledInstance(500, 500, Image.SCALE_DEFAULT);
         ImageIcon i3 = new ImageIcon(i2);
         JLabel image = new JLabel(i3);
@@ -63,6 +64,8 @@ public class StudentPanel {
             public void actionPerformed(ActionEvent e) {
               EnrolledCourse en= new EnrolledCourse();
               en.Studentid=StudentId;
+              en.Studentname=Stdname;
+
             }
         });
 
@@ -101,7 +104,7 @@ public class StudentPanel {
             }
         });
     }
-    public void SetStudentId(int id){
+    public void SetStudentId(String id){
         this.StudentId=id;
     }
 

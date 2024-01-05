@@ -8,7 +8,8 @@ import java.sql.*;
 
 public class EnrolledCourse extends JFrame {
 
-    public int Studentid;
+    public String Studentid;
+    public String Studentname;
 
     public  EnrolledCourse() {
         setTitle("Enrolled Course");
@@ -31,31 +32,39 @@ public class EnrolledCourse extends JFrame {
         JLabel courseLabel = new JLabel("Course Name: " + courseName);
         JLabel creditLabel = new JLabel("Credit Hours: " + creditHrs);
         JButton enrollButton = new JButton("Enroll");
-//        JButton backbtn=new JButton("Go back");
+        JButton backbtn=new JButton("Go back");
 
         nameLabel.setBounds(20, 10, 300, 25);
         courseLabel.setBounds(20, 35, 300, 25);
         creditLabel.setBounds(20, 60, 300, 25);
         enrollButton.setBounds(350, 25, 100, 30);
-//        backbtn.setBounds(150, 325, 100, 30);
+//          backbtn.setLayout(S);
+        backbtn.setBounds(250, 500, 100, 30);
 
         enrollButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 //                JOptionPane.showMessageDialog(EnrolledCourse.this, "Enroll in " + courseName + " Button Clicked!");
 
                 EnrolledCourseDB en=new EnrolledCourseDB();
-                en.InsterIntoEnrolledCourse(Studentid,courseName,teacherName,creditHrs);
+                en.InsterIntoEnrolledCourse(Studentid,Studentname,courseName,teacherName,creditHrs);
             }
         });
-
+//        backbtn.addActionListener(new);
+        backbtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+            }
+        });
         coursePanel.add(nameLabel);
         coursePanel.add(courseLabel);
         coursePanel.add(creditLabel);
         coursePanel.add(enrollButton);
+//        add();
 
         coursePanel.setBounds(50,  index*120, 500, 100);
         add(coursePanel);
-//        add(backbtn);
+        add(backbtn);
     }
 
     public void retrieveCourseData() {

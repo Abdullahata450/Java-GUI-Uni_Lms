@@ -46,7 +46,7 @@ public class Upload_material extends JFrame {
         createTestButton.setBounds(50, 100, 250, 30);
         createTestButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // Logic to create a test (e.g., open a test creation window)
+                // Logic to create a testing.test (e.g., open a testing.test creation window)
                 JOptionPane.showMessageDialog(null, "Create Test functionality to be implemented.");
             }
         });

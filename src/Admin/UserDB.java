@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class UserDB {
 
-    public void InsertUser(Integer id, String Name,String Role){
+    public void InsertUser(String id, String Name,String Role){
 
         try {
 
@@ -17,7 +17,7 @@ public class UserDB {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
 
             preparedStatement.setString(1,Name);
-            preparedStatement.setInt(2,id);
+            preparedStatement.setString(2,id);
             preparedStatement.setString(3,Role);
             preparedStatement.executeUpdate();
 

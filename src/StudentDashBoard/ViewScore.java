@@ -13,7 +13,7 @@ public class ViewScore extends JFrame {
     private JLabel idField, courseField, ScoreField, DescriptionField;
     private JButton BackButton;
 
-    public int id;
+    public String id;
     public  JLabel slable=new JLabel("Welocme ");
 
     public ViewScore() {
@@ -76,15 +76,15 @@ public class ViewScore extends JFrame {
         });
     }
 
-    public void retrieveScore(int id) {
+    public void retrieveScore(String id) {
         try {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", "root", "2000");
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM score WHERE Student_id=?");
-            statement.setInt(1, id);
+            statement.setString(1, id);
             ResultSet resultSet = statement.executeQuery();
 
             if (resultSet.next()) {
-                int studentId = resultSet.getInt("Student_id");
+                String studentId = resultSet.getString("Student_id");
                 String courseName = resultSet.getString("Course_name");
                 float score = resultSet.getFloat("Student_Score");
                 String desc = resultSet.getString("description");

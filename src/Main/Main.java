@@ -6,9 +6,7 @@ import java.awt.event.ActionListener;
 import java.sql.*;
 
 
-import StudentDashBoard.EnrolledCourse;
 import StudentDashBoard.StudentPanel;
-import StudentDashBoard.ViewScore;
 import TeacherDashBoard.TeacherModule;
 import Admin.AdminPanel;
 public class Main {
@@ -55,9 +53,6 @@ public class Main {
         image.setBounds(350, 20, 200, 200);
 
 
-
-
-
         frame.add(image);
         frame.add(usernameLabel);
         frame.add(usernameField);
@@ -97,8 +92,9 @@ public class Main {
                                 StudentPanel S=new StudentPanel();
                                 S.SLable.setText("Welcome " + username+" ");
 //                                S.StudentId=Integer.parseInt(password);
-                                S.SetStudentId(Integer.parseInt(password));
-
+//                                S.SetStudentId(Integer.parseInt(password));
+                                  S.SetStudentId(password);
+                                  S.Stdname=username;
 
 
 //                                EnrolledCourse en=new EnrolledCourse();

@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
+import java.util.Random;
 
 class AddStudent extends JFrame {
 
@@ -78,6 +79,10 @@ class AddStudent extends JFrame {
     private void addComponentsToFrame() {
         JLabel idLabel = new JLabel("ID:");
         idLabel.setBounds(50, 20, 80, 20);
+        String id;
+        Random random=new Random();
+        id="S"+random.nextInt(1000);
+        idField.setText(id);
         add(idLabel);
         add(idField);
 
@@ -128,7 +133,7 @@ class AddStudent extends JFrame {
         addButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
-                    int id = Integer.parseInt(idField.getText());
+                    String id = idField.getText();
                     String fname = firstNameField.getText();
                     String lname = lastNameField.getText();
                     String phone = phoneField.getText();

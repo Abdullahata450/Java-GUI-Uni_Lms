@@ -143,7 +143,7 @@ public class ManageStudent {
        addButton.addActionListener(new ActionListener() {
            public void actionPerformed(ActionEvent e) {
                try {
-                   int id = Integer.parseInt(idField.getText());
+                   String id = idField.getText();
                    String fname = firstNameField.getText();
                    String lname = lastNameField.getText();
                    String phone = phoneField.getText();
@@ -172,7 +172,7 @@ public class ManageStudent {
         updateButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
               try {
-                  int id = Integer.parseInt(idField.getText());
+                  String id = idField.getText();
                   String fname = firstNameField.getText();
                   String lname = lastNameField.getText();
                   String phone = phoneField.getText();
@@ -201,7 +201,7 @@ public class ManageStudent {
             public void actionPerformed(ActionEvent e) {
 
                 try {
-                    int id = Integer.parseInt(idField.getText());
+                    String id = idField.getText();
                     StudentDB db=new StudentDB();
                     db.insertupdateDeleteStudent('d', id, null, null, null, null, null, null);
                     JOptionPane.showMessageDialog(null,"Student with ID: " + id + " was deleted successfully!");
@@ -235,7 +235,7 @@ public class ManageStudent {
             while (resultSet.next()){
 
                 Object[] rowData = new Object[7];
-                rowData[0] = resultSet.getInt("Student_id");
+                rowData[0] = resultSet.getString("Student_id");
                 rowData[1] = resultSet.getString("First_Name");
                 rowData[2] = resultSet.getString("Last_Name");
                 rowData[3] = resultSet.getString("Gender");

@@ -131,7 +131,7 @@ public class ManageTeacher {
         updatebtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
-                    int id=Integer.parseInt(idField.getText());
+                    String id=idLabel.getText();
                     String Name=TName.getText();
                     String Phone=phoneField.getText();
                     String sub=(String) CourseDropdown.getSelectedItem();
@@ -153,7 +153,7 @@ public class ManageTeacher {
             public void actionPerformed(ActionEvent e) {
 
                 try {
-                    int id = Integer.parseInt(idField.getText());
+                    String id = idField.getText();
                     TeacherDB db=new TeacherDB();
                     db.insertupdateDeleteTeacher('d',id,null,null,null,null);
                 }
@@ -179,7 +179,7 @@ public class ManageTeacher {
             public void actionPerformed(ActionEvent e) {
 
                 try {
-                    int id=Integer.parseInt(idField.getText());
+                    String id=idField.getText();
                     String name=TName.getText();
                     String sub=(String) CourseDropdown.getSelectedItem();
                     String phn=phoneField.getText();
@@ -239,7 +239,7 @@ public class ManageTeacher {
            while (resultSet.next()){
 
                Object[] rowData = new Object[5];
-               rowData[0] = resultSet.getInt("Teacher_id");
+               rowData[0] = resultSet.getString("Teacher_id");
                rowData[1] = resultSet.getString("Name");
                rowData[2] = resultSet.getString("Subject");
                rowData[3] = resultSet.getString("Gender");

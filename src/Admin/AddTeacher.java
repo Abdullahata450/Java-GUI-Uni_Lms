@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class AddTeacher extends JFrame {
     private JTextField idField, TName, phoneField;
@@ -93,6 +94,10 @@ public class AddTeacher extends JFrame {
     private void addComponentsToFrame(){
         JLabel idLabel = new JLabel("ID:");
         idLabel.setBounds(50, 20, 80, 20);
+        String id;
+        Random random=new Random();
+        id="T"+random.nextInt(1000);
+        idField.setText(id);
         add(idLabel);
         add(idField);
 
@@ -135,7 +140,7 @@ public class AddTeacher extends JFrame {
             public void actionPerformed(ActionEvent e) {
 
                 try {
-                    int id=Integer.parseInt(idField.getText());
+                    String id=idField.getText();
                     String name =TName.getText();
                     String sub= (String) CourseDropdown.getSelectedItem();
                     String gender = maleRadioButton.isSelected() ? "Male" : "Female";

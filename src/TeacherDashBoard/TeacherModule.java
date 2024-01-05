@@ -1,8 +1,10 @@
 package TeacherDashBoard;
+//import testing.test;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 
 public class TeacherModule {
 
@@ -67,6 +69,7 @@ public class TeacherModule {
                    v.retrieveTeacherData(SetTpass);
 
 
+
             }
         });
 
@@ -75,6 +78,10 @@ public class TeacherModule {
         sidePanel.add(markAttendanceButton);
         markAttendanceButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+
+               MarkStdAttendenc a=new MarkStdAttendenc();
+//               a.Teacherid= String.valueOf(SetTpass);
+                a.RetriveStd(SetTpass);
 
             }
         });
