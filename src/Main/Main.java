@@ -96,9 +96,6 @@ public class Main {
                                   S.SetStudentId(password);
                                   S.Stdname=username;
 
-
-//                                EnrolledCourse en=new EnrolledCourse();
-//                                en.Studentid=Integer.parseInt(password);
                             }
                             else if (resultSet.getString("Role").equals("Teacher")) {
                                 TeacherModule T=new TeacherModule();

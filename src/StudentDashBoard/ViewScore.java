@@ -1,6 +1,7 @@
 package StudentDashBoard;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,17 +11,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class ViewScore extends JFrame {
-    private JLabel idField, courseField, ScoreField, DescriptionField;
-    private JButton BackButton;
-
-    public String id;
-    public  JLabel slable=new JLabel("Welocme ");
+    private JTable scoreTable;
+    private JButton backButton;
 
     public ViewScore() {
         setTitle("Score Information");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
-        setSize(400, 300);
+        setSize(500, 300);
         setLocationRelativeTo(null);
 
         initComponents();
@@ -28,52 +26,24 @@ public class ViewScore extends JFrame {
     }
 
     private void initComponents() {
-        JPanel inputPanel = new JPanel(null);
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("Your id");
+        model.addColumn("Course Name");
+        model.addColumn("Your Score");
+        model.addColumn("Description");
+        scoreTable = new JTable(model);
 
-        JLabel idLabel = new JLabel("Your  ID:");
-        idField = new JLabel();
-        idLabel.setBounds(10, 10, 100, 25);
-        idField.setBounds(120, 10, 150, 25);
+        JScrollPane scrollPane = new JScrollPane(scoreTable);
+        add(scrollPane, BorderLayout.CENTER);
 
-        JLabel courseLabel = new JLabel("Course Name");
-        courseField = new JLabel();
-        courseLabel.setBounds(10, 40, 100, 25);
-        courseField.setBounds(120, 40, 150, 25);
-
-        JLabel scoreLabel = new JLabel("Your Score");
-        ScoreField = new JLabel();
-        scoreLabel.setBounds(10, 70, 100, 25);
-        ScoreField.setBounds(120, 70, 150, 25);
-
-        JLabel descriptionLabel = new JLabel("Description");
-        DescriptionField = new JLabel();
-        descriptionLabel.setBounds(10, 120, 100, 25);
-        DescriptionField.setBounds(120, 120, 150, 25);
-
-        BackButton = new JButton("Go Back");
-        BackButton.setBounds(100, 180, 100, 30);
-
-        inputPanel.add(idLabel);
-        inputPanel.add(idField);
-        inputPanel.add(courseLabel);
-        inputPanel.add(courseField);
-        inputPanel.add(scoreLabel);
-        inputPanel.add(ScoreField);
-        inputPanel.add(descriptionLabel);
-        inputPanel.add(DescriptionField);
-        inputPanel.add(BackButton);
-
-        add(inputPanel);
-
-        BackButton.addActionListener(new ActionListener() {
+        backButton = new JButton("Go Back");
+        backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-//               StudentPanel S= new StudentPanel();
-//               S.StudentId=id;
-//               S.SLable=slable;
                 dispose();
             }
         });
+        add(backButton, BorderLayout.SOUTH);
     }
 
     public void retrieveScore(String id) {
@@ -83,18 +53,19 @@ public class ViewScore extends JFrame {
             statement.setString(1, id);
             ResultSet resultSet = statement.executeQuery();
 
-            if (resultSet.next()) {
+            DefaultTableModel model = (DefaultTableModel) scoreTable.getModel();
+//            model.setRowCount(0); // Clear existing data
+
+            while (resultSet.next()) {
                 String studentId = resultSet.getString("Student_id");
                 String courseName = resultSet.getString("Course_name");
                 float score = resultSet.getFloat("Student_Score");
                 String desc = resultSet.getString("description");
 
-                idField.setText(String.valueOf(studentId));
-                courseField.setText(courseName);
-                ScoreField.setText(String.valueOf(score));
-                DescriptionField.setText(desc);
+                model.addRow(new Object[]{studentId, courseName, score, desc});
+            }
 
-            } else {
+            if (model.getRowCount() == 0) {
                 JOptionPane.showMessageDialog(null, "No Data Found for ID: " + id);
             }
 
@@ -106,8 +77,7 @@ public class ViewScore extends JFrame {
     }
 
     public static void main(String[] args) {
-
-       new ViewScore();
+        ViewScore viewScore = new ViewScore();
 
     }
 }

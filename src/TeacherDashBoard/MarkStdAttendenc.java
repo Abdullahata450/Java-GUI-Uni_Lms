@@ -20,10 +20,10 @@ public class MarkStdAttendenc extends JFrame {
 
         try {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms","root", "2000");
-//            String query = "SELECT * FROM student";
+
             String sqlQuery = "SELECT ec.Student_id, ec.Student_name " +
                     "FROM enrolled_courses ec " +
-                    "JOIN teacher tt ON ec.Course_name = tt.Subject " + // Added space before WHERE
+                    "JOIN teacher tt ON ec.Course_name = tt.Subject " +
                     "WHERE tt.Teacher_id=?";
 
 
@@ -32,12 +32,12 @@ public class MarkStdAttendenc extends JFrame {
             ResultSet rs = pstmt.executeQuery();
 
             while (rs.next()) {
-                String Firstname = rs.getString("Student_name");
-//                String lastname = rs.getString("Last_name");
+                String StdId = rs.getString("Student_id");
+                String Name = rs.getString("Student_name");
 
-//                String studentName=Firstname +lastname;
+                String STDdetails=StdId+" "+Name;
 
-                JCheckBox checkBox = new JCheckBox(Firstname);
+                JCheckBox checkBox = new JCheckBox(STDdetails);
                 panel.add(checkBox);
             }
 

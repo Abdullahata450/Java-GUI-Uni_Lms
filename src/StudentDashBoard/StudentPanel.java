@@ -103,6 +103,16 @@ public class StudentPanel {
                 V.retrieveScore(StudentId);
             }
         });
+
+        JButton Taketest = new JButton("Take Test Online");
+        sidePanel.add(Taketest);
+
+        Taketest.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+              new test("test Online");
+            }
+        });
     }
     public void SetStudentId(String id){
         this.StudentId=id;
