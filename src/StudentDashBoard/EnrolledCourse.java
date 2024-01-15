@@ -29,13 +29,15 @@ public class EnrolledCourse extends JFrame {
         coursePanel.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
         JLabel nameLabel = new JLabel("Teacher Name: " + teacherName);
-        JLabel courseLabel = new JLabel("Course Name: " + courseName);
+        JLabel courseid = new JLabel("course id: " + courseId);
+        JLabel courseLabel = new JLabel("Course Name :"+courseName);
         JLabel creditLabel = new JLabel("Credit Hours: " + creditHrs);
         JButton enrollButton = new JButton("Enroll");
         JButton backbtn=new JButton("Go back");
 
         nameLabel.setBounds(20, 10, 300, 25);
         courseLabel.setBounds(20, 35, 300, 25);
+        courseid.setBounds(20,80,300,25);
         creditLabel.setBounds(20, 60, 300, 25);
         enrollButton.setBounds(350, 25, 100, 30);
 //          backbtn.setLayout(S);
@@ -60,9 +62,10 @@ public class EnrolledCourse extends JFrame {
         coursePanel.add(courseLabel);
         coursePanel.add(creditLabel);
         coursePanel.add(enrollButton);
+        coursePanel.add(courseid);
 //        add();
 
-        coursePanel.setBounds(50,  index*120, 500, 100);
+        coursePanel.setBounds(50,  index*120, 500, 120);
         add(coursePanel);
         add(backbtn);
     }

@@ -5,14 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91854be2-0c02-4277-bed3-da5a759226f5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/StudentDashBoard/test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/testing/Score.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Main/ForgetpassForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Admin/AddCourseModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/AddCourseModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Admin/AddStudent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/AddStudent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Admin/AddTeacher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/AddTeacher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Admin/AdminPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/AdminPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Admin/SendMailCourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/SendMailCourse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Admin/UserDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/UserDB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StudentDashBoard/EnrolledCourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StudentDashBoard/EnrolledCourse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StudentDashBoard/EnrolledCourseDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StudentDashBoard/EnrolledCourseDB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/StudentDashBoard/StudentPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StudentDashBoard/StudentPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StudentDashBoard/ViewScore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StudentDashBoard/ViewScore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TeacherDashBoard/AddScore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TeacherDashBoard/AddScore.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TeacherDashBoard/MarkStdAttendenc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TeacherDashBoard/MarkStdAttendenc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/testing/test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TeacherDashBoard/TeacherModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TeacherDashBoard/TeacherModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TeacherDashBoard/Upload_material.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TeacherDashBoard/Upload_material.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TeacherDashBoard/ViewAlocatedCourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TeacherDashBoard/ViewAlocatedCourse.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +118,12 @@
       <workItem from="1704309954439" duration="3483000" />
       <workItem from="1704362497063" duration="51000" />
       <workItem from="1704393315755" duration="6451000" />
-      <workItem from="1704464386204" duration="25701000" />
+      <workItem from="1704464386204" duration="27665000" />
+      <workItem from="1704814753963" duration="274000" />
+      <workItem from="1704904457471" duration="2662000" />
+      <workItem from="1704992774402" duration="703000" />
+      <workItem from="1705042289056" duration="607000" />
+      <workItem from="1705309123000" duration="29414000" />
     </task>
     <servers />
   </component>

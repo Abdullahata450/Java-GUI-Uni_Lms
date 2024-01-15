@@ -11,12 +11,12 @@ import java.sql.SQLException;
 public class MarkStdAttendenc extends JFrame {
     private JPanel panel;
 
-    public void RetriveStd(int Teacherid) {
+    public void RetriveStd(String Teacherid) {
         setTitle("Mark Attendance");
         setSize(400, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        panel = new JPanel(new GridLayout(0, 1)); // Use a grid layout for checkboxes
+        panel = new JPanel(new GridLayout(0, 1));
 
         try {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms","root", "2000");
@@ -28,7 +28,7 @@ public class MarkStdAttendenc extends JFrame {
 
 
             PreparedStatement pstmt = connection.prepareStatement(sqlQuery);
-            pstmt.setInt(1,Teacherid);
+            pstmt.setString(1,Teacherid);
             ResultSet rs = pstmt.executeQuery();
 
             while (rs.next()) {

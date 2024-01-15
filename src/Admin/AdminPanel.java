@@ -35,6 +35,14 @@ public class AdminPanel implements ActionListener {
         ManageBtn2 = new JButton("Manage Teacher");
         ManageBtn3 = new JButton("Manage Course");
 
+        addCourseBtn.setBackground(new Color(0, 123, 255));
+        addStudentBtn.setBackground(new Color(0, 123, 255));
+        addTeacherBtn.setBackground(new Color(0, 123, 255));
+        ManageBtn.setBackground(new Color(0, 123, 255));
+        ManageBtn2.setBackground(new Color(0, 123, 255));
+        ManageBtn3.setBackground(new Color(0, 123, 255));
+
+
         teacherPanel.add(addTeacherBtn);
         teacherPanel.add(ManageBtn2);
 

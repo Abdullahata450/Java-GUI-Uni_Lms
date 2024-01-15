@@ -2,6 +2,7 @@ package Admin;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 
 
 public class AddCourseModule {
@@ -30,17 +31,18 @@ public class AddCourseModule {
         frame.add(jLabel1);
 
         JLabel CourseName = new JLabel("Course id");
-        CourseName.setFont(new java.awt.Font("Courier New", 1, 20));
+        CourseName.setFont(new java.awt.Font("Courier New", 3, 14));
         CourseName.setBounds(50, 120, 100, 30);
         frame.add(CourseName);
 
         JLabel Name = new JLabel("Course Name:");
+        Name.setFont(new java.awt.Font("Courier New", 3, 14));
         Name.setBounds(50, 190, 100, 30);
         frame.add(Name);
 
-        JLabel Hours = new JLabel("Hours:");
+        JLabel Hours = new JLabel("Credit Hrs:");
         Hours.setFont(new java.awt.Font("Courier New", 1, 15));
-        Hours.setBounds(50, 320, 100, 30);
+        Hours.setBounds(50, 260, 100, 30);
         frame.add(Hours);
 
 
@@ -54,10 +56,15 @@ public class AddCourseModule {
         CourseNametext.setBounds(150, 190, 200, 30);
         frame.add(CourseNametext);
 
+        String id;
+        Random random=new Random();
+        id= String.valueOf(random.nextInt(5000));
+        idText.setText(id);
+
         jSpinner_courseHours = new JSpinner();
         jSpinner_courseHours.setFont(new java.awt.Font("Tahoma", 1, 14));
         jSpinner_courseHours.setModel(new javax.swing.SpinnerNumberModel(0, 0, 5, 1));
-        jSpinner_courseHours.setBounds(150, 320, 100, 30);
+        jSpinner_courseHours.setBounds(150, 260, 100, 30);
         frame.add(jSpinner_courseHours);
 
         Addbtn = new JButton("Add Course");

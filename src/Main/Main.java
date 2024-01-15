@@ -35,22 +35,23 @@ public class Main {
         passwordLabel.setForeground(Color.white);
 
         JButton loginButton = new JButton("Login");
-        loginButton.setBounds(40, 140, 120, 30);
+        loginButton.setBounds(150, 180, 120, 30);
         loginButton.setBackground(Color.BLACK);
         loginButton.setForeground(Color.WHITE);
         loginButton.setFont(new Font("Tahoma",Font.BOLD,16));
 
-        JButton registerButton = new JButton("Register");
-        registerButton.setBounds(180, 140, 120, 30);
-        registerButton.setBackground(Color.BLACK);
-        registerButton.setForeground(Color.WHITE);
-        registerButton.setFont(new Font("Tahoma",Font.BOLD,16));
+//        JButton registerButton = new JButton("Forget Password");
+//        registerButton.setBounds(180, 140, 120, 30);
+//        registerButton.setBackground(Color.BLACK);
+//        registerButton.setForeground(Color.WHITE);
+//        registerButton.setFont(new Font("Tahoma",Font.BOLD,16));
 
-        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/Login.jpg"));
-        Image i2 = i1.getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT);
-        ImageIcon i3 = new ImageIcon(i2);
-        JLabel image = new JLabel(i3);
-        image.setBounds(350, 20, 200, 200);
+
+        ImageIcon i1=new ImageIcon(ClassLoader.getSystemResource("icons/login.jpg"));
+        Image i2=i1.getImage().getScaledInstance(200,200,Image.SCALE_DEFAULT);
+        ImageIcon i3=new ImageIcon(i2);
+        JLabel image=new JLabel(i3);
+        image.setBounds(350,20,200,200);
 
 
         frame.add(image);
@@ -59,7 +60,7 @@ public class Main {
         frame.add(passwordLabel);
         frame.add(passwordField);
         frame.add(loginButton);
-        frame.add(registerButton);
+//        frame.add(registerButton);
 
         loginButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -78,10 +79,6 @@ public class Main {
 
                     if (resultSet.next()) {
 
-//                        String dbUsername = resultSet.getString("user_name");
-//                        String dbPassword = resultSet.getString("password");
-//                       if (dbUsername.equals(username) && dbPassword.equals(password)) {
-
 
                             if (resultSet.getString("Role").equals("Admin")) {
                                 new AdminPanel();
@@ -90,9 +87,7 @@ public class Main {
                             else if (resultSet.getString("Role").equals("Student")) {
 
                                 StudentPanel S=new StudentPanel();
-                                S.SLable.setText("Welcome " + username+" ");
-//                                S.StudentId=Integer.parseInt(password);
-//                                S.SetStudentId(Integer.parseInt(password));
+                                  S.SLable.setText("Welcome " + username+" ");
                                   S.SetStudentId(password);
                                   S.Stdname=username;
 
@@ -100,10 +95,10 @@ public class Main {
                             else if (resultSet.getString("Role").equals("Teacher")) {
                                 TeacherModule T=new TeacherModule();
                                 T.TLable.setText("Welcome " + username +".");
-                                T.SetTpass=Integer.parseInt(password);
+//                                T.SetTpass=Integer.parseInt(password);
+                                T.SetTpass=password;
                             }
 
-//                        }
                         connection.close();
                     }
                     else {

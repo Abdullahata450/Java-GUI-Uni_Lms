@@ -70,7 +70,7 @@ public class ViewAlocatedCourse extends JFrame {
     }
 
 
-    public void retrieveTeacherData(int id) {
+    public void retrieveTeacherData(String id) {
         try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", "root", "2000");
              PreparedStatement statement = connection.prepareStatement("SELECT * FROM teacher WHERE Teacher_id = ?")) {
             statement.setString(1, String.valueOf(id));

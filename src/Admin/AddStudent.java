@@ -81,7 +81,7 @@ class AddStudent extends JFrame {
         idLabel.setBounds(50, 20, 80, 20);
         String id;
         Random random=new Random();
-        id="S"+random.nextInt(1000);
+        id= String.valueOf(random.nextInt(1000));
         idField.setText(id);
         add(idLabel);
         add(idField);

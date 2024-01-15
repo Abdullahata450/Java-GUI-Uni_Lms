@@ -4,21 +4,22 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class AddScore {
     private JFrame frame;
-    private JComboBox<String> CourseDropdown;
+//    private JComboBox<String> CourseDropdown;
 
     private JButton Add,Goback;
     private JTable ScoreTable;
     private DefaultTableModel model;
     private JScrollPane scrollPane;
+
+    JTextField Coursename=new JTextField();
+
+    public String id;
 
 
 
@@ -29,10 +30,13 @@ public class AddScore {
         frame.setLayout(null);
 
         initComponents();
-        fillTable();
-
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+
+        Coursename.setBounds(197, 180, 200, 40);
+        frame.add(Coursename);
+//        fillTable();
+
     }
 
     private  void initComponents(){
@@ -54,15 +58,11 @@ public class AddScore {
         JLabel Courseid=new JLabel("Course Name");
         Courseid.setFont(new java.awt.Font("Courier", 2, 20));
         Courseid.setBounds(50, 180, 200, 40);
-        frame.add(Courseid);
 
-        CourseDropdown = new JComboBox<>();
-        CourseDropdown.setBounds(197, 180, 200, 40);
-        frame.add(CourseDropdown);
-        List<String> course=fetchCourseFromDatabase();
-        for(String Course:course){
-            CourseDropdown.addItem(Course);
-        }
+        frame.add(Courseid);
+//        frame.add(Coursename);
+
+//
 
         JLabel Score =new JLabel("Add Score");
         Score.setFont(new java.awt.Font("Courier", 2, 20));
@@ -103,11 +103,11 @@ public class AddScore {
         Add.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {            /// Next task jo student database ma unka hi data Score add ho !!
                 int id=Integer.parseInt(Sid.getText());
-                String Cname=(String)CourseDropdown.getSelectedItem();
+//                String Cname=(String)CourseDropdown.getSelectedItem();
                 Float Score=Float.parseFloat(Sscore.getText());
                 String Dec=Adddec.getText();
                 ScoreDB db =new ScoreDB();
-                db.InstertUpdateScore('i',id,Cname,Score,Dec);
+                db.InstertUpdateScore('i',id, String.valueOf(Coursename),Score,Dec);
                 JOptionPane.showMessageDialog(null,"Score Added SuccessFully");
             }
         });
@@ -120,43 +120,81 @@ public class AddScore {
         });
 
 
-    }
-    public List <String> fetchCourseFromDatabase(){
-        List<String> Course = new ArrayList<>();
-
-        try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", "root", "2000");
-            Statement statement=connection.createStatement();
-            ResultSet resultSet=statement.executeQuery("SELECT  * FROM course");
-
-            while (resultSet.next()){
-                String CourseName=resultSet.getString("Course_name");
-                Course.add(CourseName);
-            }
-
-        }
-        catch (Exception ex){
-            ex.printStackTrace();
-        }
-        return Course;
 
     }
 
-    public  void fillTable(){
-        model.addColumn("Student id ");
-        model.addColumn("First Name");
-        model.addColumn("Last Name");
+
+
+
+    public  void ADDCoursename(String id){
 
         try {
             Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/lms","root", "2000");
-            Statement statement=connection.createStatement();
-            ResultSet resultSet=statement.executeQuery("SELECT * FROM student");
+            String qurrey="SELECT Subject from teacher WHERE Teacher_id=? ";
+            PreparedStatement statement=connection.prepareStatement(qurrey);
+            statement.setString(1,id);
+            ResultSet resultSet=statement.executeQuery();
 
             while (resultSet.next()){
+                String subject=resultSet.getString("Subject");
+                Coursename.setText(subject);
+            }
+
+
+        }
+        catch (Exception ex){
+
+        }
+    }
+
+
+    public  void fillTable(String id){
+        model.addColumn("Student id ");
+        model.addColumn("First Name");
+        model.addColumn("Subject");
+
+        try {
+            Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/lms","root", "2000");
+
+//            Statement statement=connection.createStatement();
+//            String sqlQuery = "SELECT ec.Student_id, ec.Student_name " +
+//                    "FROM enrolled_courses ec " +
+//                    "JOIN teacher tt ON ec.Course_name = tt.Subject " +
+//                    "WHERE tt.Teacher_id=?";
+//
+//            PreparedStatement statement=connection.prepareStatement(sqlQuery);
+//            statement.setString(1,id);
+//
+//            ResultSet resultSet=statement.executeQuery(sqlQuery);
+
+//            String sqlQuery = "SELECT ec.Student_id, ec.Student_name, ec.Course_name " +
+//                    "FROM enrolled_courses ec " +
+//                    "JOIN teacher tt ON ec.Course_name = tt.Subject " +
+//                    "WHERE tt.Teacher_id=?";
+//            String sqlQuery="SELECT Subject ,Name,from teacher WHERE Teacher_id=?";
+
+//            String qurrey="SELECT Subject from teacher WHERE Teacher_id=? ";
+
+//            PreparedStatement pstmt = connection.prepareStatement(qurrey);
+//            pstmt.setString(1,id);
+//            ResultSet rs = pstmt.executeQuery();
+
+            String sqlQuery = "SELECT ec.Student_id, ec.Student_name, ec.Course_name " +
+                    "FROM enrolled_courses ec " +
+                    "JOIN teacher tt ON ec.Course_name = tt.Subject " +
+                    "WHERE tt.Teacher_id=?";
+
+
+            PreparedStatement pstmt = connection.prepareStatement(sqlQuery);
+            pstmt.setString(1,id);
+            ResultSet rs = pstmt.executeQuery();
+
+
+            while (rs.next()){
                 Object [] obj=new Object[4];
-                obj[0]=resultSet.getString("Student_id");
-                obj[1]=resultSet.getString("First_name");
-                obj[2]=resultSet.getString("Last_name");
+                obj[0]=rs.getString("Student_id");
+                obj[1]=rs.getString("Student_name");
+                obj[2]=rs.getString("Course_name");
                 model.addRow(obj);
 
             }

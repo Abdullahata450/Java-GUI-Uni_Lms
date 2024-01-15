@@ -24,16 +24,20 @@ public class StudentPanel {
         initComponents();
 
         frame.setVisible(true);
+
     }
 
     private void initComponents() {
+        Font labelFont = new Font("Arial", Font.BOLD, 24);
+
         topPanel = new JPanel();
         topPanel.setBounds(0, 0, 200, 50);
         topPanel.setBackground(Color.BLUE);
         frame.add(topPanel);
 
-        JLabel label = new JLabel("Student Panel");
-        label.setBounds(450, 0, 200, 100);
+        JLabel label = new JLabel("Student View Board");
+        label.setFont(labelFont);
+        label.setBounds(450, 0, 600, 100);
         label.setForeground(Color.BLACK);
         frame.add(label);
 

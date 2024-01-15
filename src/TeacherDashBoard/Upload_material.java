@@ -13,7 +13,7 @@ import java.sql.PreparedStatement;
 public class Upload_material extends JFrame {
 
     private JButton uploadMaterialButton;
-    private JButton createTestButton;
+    private JButton goback;
 
     public Upload_material() {
         setTitle("Teacher Material Module");
@@ -42,15 +42,17 @@ public class Upload_material extends JFrame {
         });
         add(uploadMaterialButton);
 
-        createTestButton = new JButton("Create Test");
-        createTestButton.setBounds(50, 100, 250, 30);
-        createTestButton.addActionListener(new ActionListener() {
+        goback = new JButton("Go Backs");
+        goback.setBounds(50, 100, 250, 30);
+        goback.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // Logic to create a testing.test (e.g., open a testing.test creation window)
-                JOptionPane.showMessageDialog(null, "Create Test functionality to be implemented.");
+//                JOptionPane.showMessageDialog(null, "Create Test functionality to be implemented.");
+                new TeacherModule();
+                dispose();
             }
         });
-        add(createTestButton);
+        add(goback);
     }
 
     private void uploadFileToDB(File file) {

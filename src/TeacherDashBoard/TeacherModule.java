@@ -12,7 +12,7 @@ public class TeacherModule {
     private JPanel topPanel, sidePanel;
     public JLabel TLable;
 
-    public int SetTpass;
+    public String SetTpass;
 
     public TeacherModule() {
         frame = new JFrame();
@@ -27,12 +27,16 @@ public class TeacherModule {
     }
 
     private void initComponents() {
+        Font labelFont = new Font("Arial", Font.BOLD, 24);
+
         topPanel = new JPanel();
         topPanel.setBounds(0, 0, 200, 50);
         topPanel.setBackground(Color.BLUE);
         frame.add(topPanel);
 
+
         JLabel label=new JLabel("Teacher Panal");
+        label.setFont(labelFont);
         label.setBounds(400 ,0,200,100);
         label.setForeground(Color.BLACK);
         frame.add(label);
@@ -46,7 +50,7 @@ public class TeacherModule {
         Image i2 = i1.getImage().getScaledInstance(500, 500, Image.SCALE_DEFAULT);
         ImageIcon i3 = new ImageIcon(i2);
         JLabel image = new JLabel(i3);
-        image.setBounds(200, 50, frame.getWidth() - 200, frame.getHeight() - 50);
+        image.setBounds(200, 50, 600, 650);
         frame.add(image);
 
         sidePanel.setLayout(new GridLayout(0, 1,50,4));
@@ -103,7 +107,13 @@ public class TeacherModule {
         sidePanel.add(inputGradesButton);
         inputGradesButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new AddScore();
+//                new AddScore();
+                AddScore s=new AddScore();
+//                s.ADDCoursename(SetTpass);
+                s.ADDCoursename(SetTpass);
+//                s.id=SetTpass;
+                s.fillTable(SetTpass);
+
             }
         });
 
